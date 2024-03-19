@@ -1,16 +1,7 @@
 # basic_operations_supabase
 
-Basic Operations in Supabase (Auth, Register)
+Basic Operations in Supabase (CRUD)
 
-## Getting Started
+![telas](https://github.com/andreyquadros/App-CRUD-Supabase/assets/105085242/399d7e1d-2c9f-4164-a386-5ae32f70d1a5)
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![telas2](https://github.com/andreyquadros/App-CRUD-Supabase/assets/105085242/b18d90b1-22da-4697-bc2b-93b20adffd65)
