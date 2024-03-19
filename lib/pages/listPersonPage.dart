@@ -20,6 +20,43 @@ class _ListPersonPageState extends State<ListPersonPage> {
     });
   }
 
+  void _showEditNameDialog(String nomeAtual, int index) {
+    TextEditingController _nomeController = TextEditingController(text: nomeAtual);
+    showDialog(
+      context: context,
+      builder: (context) => Dialog(
+        child: Container(
+          padding: EdgeInsets.all(20),
+          height: 200, // Define a altura do Dialog
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              TextField(
+                controller: _nomeController,
+                decoration: InputDecoration(labelText: 'Editar Nome'),
+              ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blueAccent
+                ),
+                child: Text('Salvar', style: TextStyle(color: Colors.white),),
+                onPressed: () {
+                  setState(() {
+                    pessoas[index] = _nomeController.text;
+                    DatabaseOperations().updatePersonRowSupabase(nomeAtual, _nomeController.text);
+                  });
+
+                  Navigator.pop(context); // Fecha o Dialog
+                },
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+
   Future<void> excluirNome(String nome) async {
     await DatabaseOperations().deletePersonRowSupabase(nome);
     setState(() {
@@ -54,18 +91,23 @@ class _ListPersonPageState extends State<ListPersonPage> {
             color: Colors.blueAccent,
             margin: EdgeInsets.all(8),
             child: ListTile(
-              leading: Icon(
-                Icons.edit,
-                color: Colors.tealAccent,
+              leading: GestureDetector(
+                onTap: () {
+                  _showEditNameDialog(pessoas[index], index);
+                },
+                child: Icon(
+                  Icons.edit,
+                  color: Colors.tealAccent,
+                ),
               ),
               trailing: GestureDetector(
-                onTap: (){
-                  excluirNome(pessoas[index]);
-                },
+                  onTap: () {
+                    excluirNome(pessoas[index]);
+                  },
                   child: Icon(
-                Icons.delete,
-                color: Colors.redAccent,
-              )),
+                    Icons.delete,
+                    color: Colors.redAccent,
+                  )),
               title: Text(
                 pessoas[index],
                 style: TextStyle(

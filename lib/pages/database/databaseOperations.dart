@@ -31,4 +31,11 @@ class DatabaseOperations {
         .delete()
         .match({ 'nome': nome });
   }
+
+  Future<void> updatePersonRowSupabase(String nome, String novoNome) async {
+    await supabase
+        .from('AppCadastrarPessoas')
+        .update({ 'nome': novoNome })
+        .match({ 'nome': nome });
+  }
 }
