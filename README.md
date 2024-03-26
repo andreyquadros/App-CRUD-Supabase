@@ -1,6 +1,6 @@
 # basic_operations_supabase
 
-Authentication Supabase (SignIn, SignUp, SignOut)
+Authentication Supabase (SignIn, SignUp, Forgot)
 
 ![registers](https://github.com/andreyquadros/App-CRUD-Supabase/assets/105085242/f08ef9ed-b8e2-44a3-9c0e-a57a762aa0bf)
 ![recuperarSenha](https://github.com/andreyquadros/App-CRUD-Supabase/assets/105085242/657d868f-e50d-42d1-aa48-30251a352632)
