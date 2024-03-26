@@ -1,4 +1,5 @@
 import 'package:basic_operations_supabase/AppRoutes.dart';
+import 'package:basic_operations_supabase/pages/database/databaseOperations.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -15,6 +16,17 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: Colors.blueAccent,
         title: Text('Página Inicial', style: TextStyle(color: Colors.white),),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 16),
+            child: GestureDetector(
+              onTap: (){
+                DatabaseOperations().logoutEmailPass();
+                Navigator.pushReplacementNamed(context, AppRoutes.loginPage);
+              },
+                child: Icon(Icons.logout)),
+          ),
+        ],
         elevation: 5,
         foregroundColor: Colors.white,
         centerTitle: true,
@@ -56,7 +68,19 @@ class _HomePageState extends State<HomePage> {
                   case 0: Navigator.pushNamed(context, AppRoutes.registerPersonPage);
                   break;
 
+                  case 1: Navigator.pushNamed(context, AppRoutes.registerProductPage);
+                  break;
+
+                  case 2: Navigator.pushNamed(context, AppRoutes.registerSupplierPage);
+                  break;
+
                   case 3: Navigator.pushNamed(context, AppRoutes.listPersonPage);
+                  break;
+
+                  case 4: Navigator.pushNamed(context, AppRoutes.listProductsPage);
+                  break;
+
+                  case 5: Navigator.pushNamed(context, AppRoutes.listSupplierPage);
                   break;
                 };
                 // Aqui você pode adicionar a navegação para cada página
